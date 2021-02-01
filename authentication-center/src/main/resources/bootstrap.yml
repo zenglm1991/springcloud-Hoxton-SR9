@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: authentication-center
+  jackson:
+    generator:
+      write_numbers_as_strings: true
+#springcloude nacos 注册
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: springcloud
+#dubbo nacos 注册
+dubbo:
+  application:
+    name: authentication-center-dubbo
+  registry:
+    address: nacos://127.0.0.1:8848?namespace=dubbo
+  scan:
+    base-packages: com.zlm.api.service
+  protocol:
+    port: 20881
+    name: dubbo
+  consumer:
+    check: false
+
